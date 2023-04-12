@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/zero.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/media.css">
+</head>
+
+<body>
+    <div class="bg-box">
+        <div class="bg-box__item"></div>
+        <div class="bg-box__item"></div>
+        <div class="bg-box__item"></div>
+        <div class="bg-box__item"></div>
+        <div class="bg-box__item"></div>
+    </div>
+
+    <div class="box">
+        <div class="box__electron-tablo">00:00:00</div>
+        <div class="box__reminder-pointer"><i class="fa-solid fa-angle-down"></i></div>
+        <div class="box__alarm-arrow"></div>
+        <div class="box__min-arrow"></div>        
+        <div class="box__hour-arrow"></div>
+        <div class="box__second-arrow"></div>
+        <div class="box__point"></div>
+        
+    </div>
+
+    <div class="menu">
+        <button class="menu__open-clous">Menu</button>
+        <div class="menu__elements">
+            <button class="alarm"><i class="fa-regular fa-clock"></i> </button>
+            <input class="alarm__input" type="time" disabled value="07:00">
+        </div>
+        <div class="menu__elements">
+            <button class="icon_reminder"><i class="fa-regular fa-bell"></i></button>
+            <input class="reminder__input" type="number" min="0" max="59" disabled>
+        </div>
+    </div>
+
+
+    <audio id="audioAlarm" controls src="./audio/petuh-30746.mp3" type="audio/mp3"></audio>
+    <audio id="audioReminder" controls src="./audio/ipad-soobschenie-napominaet-zvukovyie-effektyi-39580.mp3"></audio>
+
+
+
+
+    <script src="https://kit.fontawesome.com/d8abf9e13d.js" crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+@media (orientation:portrait) {
+    body{
+        --widthHeightBox: 90vw;
+    }
+}
+
+@media (max-width:587px) {
+    .box__reminder-pointer i {
+        font-size: 25px;
+    }
+}
+
+@media (max-width:443px) {
+    .box__reminder-pointer i {
+        font-size: 19px;
+    }
+}
+
+@media (max-width:350px) {
+    .box__reminder-pointer i {
+        font-size: 16px;
+    }
+}

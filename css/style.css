@@ -1,0 +1,318 @@
+@font-face {
+    font-family: "electronoetablo";
+    src: url(../font/CursedTimerUlil.ttf);
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    flex-wrap: wrap;
+    --widthHeightBox: 90vh;
+    --startSecDeg: 0deg;
+    --endSecDeg: 0deg;
+    --startMinDeg: 0deg;
+    --endMinDeg: 0deg;
+    --startHourDeg: 0deg;
+    --endHourDeg: 0deg;
+
+    --alarmDeg: 210deg;
+    --ReminderDeg: 0deg;
+}
+
+.box {
+    width: var(--widthHeightBox);
+    height: var(--widthHeightBox);
+    background-color: #0000002c;
+    border-radius: 100%;
+    background-image: url(../img/bg.svg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+}
+
+.box__point {
+    background-color: white;
+    border-radius: 100%;
+    width: calc(var(--widthHeightBox) * 0.05);
+    height: calc(var(--widthHeightBox) * 0.05);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: calc(var(--widthHeightBox) * 0.01) solid #830404;
+}
+
+.box__second-arrow {
+    width: calc(var(--widthHeightBox) * 0.005);
+    height: calc(var(--widthHeightBox) * 0.63);
+    background-color: #830404;
+    box-shadow: 0 0 8px black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    animation: second 60s linear infinite;
+    transform-origin: 50% 80%;
+}
+
+@keyframes second {
+    0% {
+        transform: translate(-50%, -80%) rotate(var(--startSecDeg));
+    }
+
+    100% {
+        transform: translate(-50%, -80%) rotate(var(--endSecDeg));
+    }
+}
+
+.box__min-arrow {
+    width: calc(var(--widthHeightBox) * 0.02);
+    height: calc(var(--widthHeightBox) * 0.55);
+    background-color: white;
+    box-shadow: 0 0 8px black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    transform-origin: 50% 80%;
+    animation: min 3600s linear infinite;
+}
+
+@keyframes min {
+    0% {
+        transform: translate(-50%, -80%) rotate(var(--startMinDeg));
+    }
+
+    100% {
+        transform: translate(-50%, -80%) rotate(var(--endMinDeg));
+    }
+}
+
+.box__hour-arrow {
+    width: calc(var(--widthHeightBox) * 0.03);
+    height: calc(var(--widthHeightBox) * 0.40);
+    background-color: white;
+    box-shadow: 0 0 8px black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    transform-origin: 50% 80%;
+    animation: hour 43200s linear infinite;
+}
+
+
+@keyframes hour {
+    0% {
+        transform: translate(-50%, -80%) rotate(var(--startHourDeg));
+    }
+
+    100% {
+        transform: translate(-50%, -80%) rotate(var(--endHourDeg));
+    }
+}
+
+.box__electron-tablo {
+    font-size: calc(var(--widthHeightBox) * 0.10);
+    color: white;
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 0;
+    font-family: "electronoetablo";
+}
+
+.menu {
+    position: fixed;
+    box-sizing: border-box;
+    top: 5vh;
+    right: 0;
+    transform: translateX(100%);
+    width: 230px;
+    min-height: 40vh;
+    background-color: #00000080;
+    border: 1px solid white;
+    border-radius: 0 10px 10px 10px;
+    transition: 0.5s;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu_open {
+    transform: translateX(0);
+}
+
+.menu__open-clous {
+    position: absolute;
+    transform: translate(calc(-100% + -20px), -21px);
+    background-color: white;
+    color: black;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid white;
+    padding: 8px 10px;
+    font-family: "electronoetablo";
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.menu__elements {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.alarm, .icon_reminder {
+    opacity: 0.5;
+    background-color: transparent;
+    color: white;
+    font-size: 35px;
+    transition: 0.2s;
+}
+
+.open_alarm {
+    opacity: 1;
+}
+
+.open_icon_reminder {
+    opacity: 1;
+}
+
+.alarm:hover {
+    opacity: 1;
+}
+
+.icon_reminder:hover{
+    opacity: 1;
+}
+
+input {
+    height: 32px;
+    border-radius: 7px;
+    font-family: "electronoetablo";
+    cursor: pointer;
+    width: 74px;
+    text-align: center;
+}
+
+.box__alarm-arrow {
+    width: calc(var(--widthHeightBox) * 0.006);
+    height: calc(var(--widthHeightBox) * 0.63);
+    background-color: #cccf00;
+    box-shadow: 0 0 8px black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%) rotate(var(--alarmDeg));
+    transform-origin: 50% 80%;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.alarm-arrow_active {
+    opacity: 1;
+}
+
+
+.box__reminder-pointer {
+    width: calc(var(--widthHeightBox) * 0.05);
+    height: calc(var(--widthHeightBox) * 0.69);
+    background-color: transparent;
+    /* background-color: rgba(238, 130, 238, 0.432); */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%) rotate(var(--ReminderDeg));
+    transform-origin: 50% 80%;
+    transition: 0.3s;
+    opacity: 0;
+}
+
+.reminder-pointer_active {
+    opacity: 1;
+}
+
+.box__reminder-pointer i {
+    color: #cccf00;
+    font-size: 32px;
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+audio {
+    width: 0;
+    position: absolute;
+}
+
+.bg-box {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.bg-box__item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background-image: url(../img/Frame\ 1.svg);
+    background-size: 200px;
+    opacity: 0;
+    animation: bg 15s linear infinite;
+}
+
+.bg-box__item:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.bg-box__item:nth-child(2) {
+    animation-delay: 1s;
+    background-position: 20% 60%;
+}
+
+.bg-box__item:nth-child(3) {
+    animation-delay: 2s;
+    background-position: 50% 30%;
+}
+
+.bg-box__item:nth-child(4) {
+    animation-delay: 3s;
+    background-position: 40% 40%;
+}
+
+.bg-box__item:nth-child(5) {
+    animation-delay: 4s;
+    background-position: 30% 70%;
+}
+
+@keyframes bg {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(50%) rotate(0deg);
+    }
+    85% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(200%) rotate(320deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(280%) rotate(360deg);
+    }
+}
